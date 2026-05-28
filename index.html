@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodChef - 今日の気分で決めるレシピ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>MoodChef</h1>
+            <p class="subtitle">今の気分は？</p>
+        </header>
+
+        <main id="main-content">
+            <!-- 気分選択画面 -->
+            <section id="mood-selection">
+                <div class="mood-grid" id="mood-grid">
+                    <!-- JSで動的に生成 -->
+                </div>
+            </section>
+
+            <!-- レシピ表示画面 (最初は非表示) -->
+            <section id="recipe-display" class="hidden">
+                <div id="recipe-card" class="recipe-card">
+                    <!-- JSで動的に生成 -->
+                </div>
+                <button id="back-button" class="btn-secondary">選び直す</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 MoodChef</p>
+        </footer>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
