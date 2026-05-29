@@ -42,6 +42,14 @@
                 </section>
             </div>
 
+            <!-- 特売情報セクション -->
+            <section id="sales-section">
+                <h3>近くの特売情報</h3>
+                <div id="sales-feed" class="community-feed">
+                    <!-- JSで動的に生成 -->
+                </div>
+            </section>
+
             <!-- コミュニティセクション -->
             <section id="community-section" class="hidden">
                 <div class="post-form-card">
@@ -72,6 +80,27 @@
             <p>&copy; 2026 MoodChef</p>
         </footer>
     </div>
+
+    <!-- キャラクター「ムーくん」 -->
+    <div id="mascot-container">
+        <div class="speech-bubble" id="mascot-speech">こんにちは！今日の気分を教えてね。</div>
+        <div class="mascot" id="mascot-character">
+            <div class="chef-hat"></div>
+            <div class="mascot-body">
+                <div class="eyes">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                </div>
+                <div class="blush"></div>
+                <div class="mouth"></div>
+            </div>
+            <div class="hands">
+                <div class="hand left"></div>
+                <div class="hand right"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>

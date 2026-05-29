@@ -145,6 +145,15 @@ h1 {
     box-shadow: var(--shadow);
 }
 
+#sales-section {
+    margin-bottom: 3rem;
+}
+
+#sales-section h3 {
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
 .post-form-card h3 {
     margin-bottom: 1.5rem;
     color: var(--accent-color);
@@ -438,3 +447,189 @@ footer {
     .recipe-info { gap: 0.5rem; flex-wrap: wrap; }
     .mood-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
 }
+
+/* キャラクター「ムーくん」のスタイル */
+#mascot-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none; /* 下の要素を触れるように */
+}
+
+.mascot {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    cursor: pointer;
+    pointer-events: auto;
+    animation: mascotFloat 3s ease-in-out infinite;
+}
+
+.chef-hat {
+    width: 40px;
+    height: 30px;
+    background: white;
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    border-radius: 10px 10px 5px 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.chef-hat::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+    width: 50px;
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+
+.mascot-body {
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    position: relative;
+    border: 3px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.eyes {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.eye {
+    width: 8px;
+    height: 8px;
+    background: var(--text-color);
+    border-radius: 50%;
+    animation: blink 4s infinite;
+}
+
+.blush {
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    width: 60px;
+    height: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.blush::before, .blush::after {
+    content: '';
+    width: 12px;
+    height: 8px;
+    background: rgba(255, 100, 100, 0.3);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.mouth {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 8px;
+    border-bottom: 2px solid var(--text-color);
+    border-radius: 0 0 10px 10px;
+}
+
+.hands {
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hand {
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.speech-bubble {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 200px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInBubble 0.5s ease forwards 1s;
+    pointer-events: auto;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 30px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent transparent;
+}
+
+@keyframes mascotFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+@keyframes fadeInBubble {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* モバイル対応：キャラクターが重ならないように調整 */
+@media (max-width: 900px) {
+    #mascot-container {
+        bottom: 20px;
+        right: 20px;
+    }
+    .mascot {
+        width: 60px;
+        height: 60px;
+    }
+    .chef-hat {
+        width: 30px;
+        height: 25px;
+        top: -15px;
+        left: 15px;
+    }
+    .chef-hat::after {
+        width: 40px;
+    }
+    .speech-bubble {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+}
+

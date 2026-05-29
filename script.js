@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 初期化
     initMoods();
     renderCommunityFeed();
+    renderSalesFeed(); // 特売情報を表示
 
     // 気分ボタンとセレクトボックスを生成
     function initMoods() {
@@ -95,6 +96,27 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
+    // 特売フィードの描画
+    function renderSalesFeed() {
+        const salesFeed = document.getElementById('sales-feed');
+        salesFeed.innerHTML = '';
+        specialSales.forEach((sale, index) => {
+            const card = document.createElement('div');
+            card.className = 'community-card';
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            card.innerHTML = `
+                <div class="community-card-header">
+                    <span class="user-badge" style="color:var(--primary-color)">${sale.supermarket}</span>
+                    <span class="post-mood-tag">${sale.date}</span>
+                </div>
+                <div class="post-title-small">${sale.item}</div>
+                <div class="post-comment" style="font-weight:bold; color:var(--accent-color); font-size:1.1rem;">${sale.price}</div>
+            `;
+            salesFeed.appendChild(card);
+        });
+    }
+
     // タブ切り替え
     navHome.addEventListener('click', () => {
         switchTab('home');
@@ -109,12 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
             navHome.classList.add('active');
             navCommunity.classList.remove('active');
             recipeSectionContainer.classList.remove('hidden');
+            document.getElementById('sales-section').classList.remove('hidden'); // 特売セクション表示
             communitySection.classList.add('hidden');
             subtitle.textContent = "今の気分は？";
         } else {
             navHome.classList.remove('active');
             navCommunity.classList.add('active');
             recipeSectionContainer.classList.add('hidden');
+            document.getElementById('sales-section').classList.add('hidden'); // 特売セクション非表示
             communitySection.classList.remove('hidden');
             subtitle.textContent = "みんなの料理ギャラリー";
             renderCommunityFeed();

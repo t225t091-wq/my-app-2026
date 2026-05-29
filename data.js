@@ -165,3 +165,25 @@ const initialCommunityPosts = [
     }
 ];
 
+const specialSales = [
+    {
+        supermarket: "フレッシュマート",
+        item: "国産豚バラ肉",
+        price: "100g 158円",
+        date: "本日限定"
+    },
+    {
+        supermarket: "近所の八百屋",
+        item: "旬のキャベツ",
+        price: "1玉 98円",
+        date: "明日まで"
+    },
+    {
+        supermarket: "フレッシュマート",
+        item: "卵(1パック)",
+        price: "198円",
+        date: "毎日"
+    }
+];
+
+
